@@ -4,6 +4,7 @@ import { supabase } from "../products";
 export const useSupabase = () => {
     const [products, setProducts] = useState<any>([]);
     const [filterData, setFilterData] = useState<any>([]);
+    const [singleProduct, setSingleProduct] = useState<any>([]);
 
     const getDataFromSupabase = async () => {
         let {data, error} = await supabase.from('products').select("*");
@@ -29,11 +30,24 @@ export const useSupabase = () => {
         }
     }
 
+    const getSingleProduct = async (id:number) => {
+        let {data, error} = await supabase.from('products').select("*").eq('id',id);
+        if(data) {
+            setSingleProduct(data);
+        }
+
+        if(error) {
+            console.log(error);
+        }
+    }
+
     return {
             products, 
             getDataFromSupabase,
             filterData,
-            getFilterData
+            getFilterData,
+            singleProduct,
+            getSingleProduct
         };
 
 }
