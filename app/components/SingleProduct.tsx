@@ -5,40 +5,18 @@ import Ratings from './shared/Ratings'
 const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
 
     return (
-        // <div classNameName='w-[80%] mx-auto mt-10'>
-        //     <div>
-        //         {
-        //             singleProduct.map((product:any) => {
-        //                 return (
-        //                     <div classNameName='flex'>
-        //                         <div classNameName='bg-gray-100'>
-        //                             <Image src={product.image} width={400} height={500} alt={product.title} classNameName='mix-blend-multiply p-4'/>
-        //                         </div>
-        //                         <div classNameName='ml-2'>
-        //                             <h1 classNameName='font-bold text-lg'>{product.title}</h1>
-        //                             <p>{product.description}</p>
-        //                             <Ratings ratings={product.rating} />
-        //                             <h6 classNameName='font-medium text-[#023a5c]'>{`$${product.price}`} /-</h6>
-        //                         </div>
-        //                     </div>
-        //                 )
-        //             })
-        //         }
-        //     </div>
-        // </div>
-
         <section className="text-gray-600 body-font overflow-hidden">
             {
                 singleProduct.map((product: any) => {
                     return (
                         <div className="container px-5 py-24 mx-auto">
-                            <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                                <Image alt={product.title} className="lg:w-1/2  object-cover object-center rounded" height={300} width={300} src={product.image} />
+                            <div className="lg:w-4/5 mx-auto flex flex-wrap items-center justify-center">
+                                <Image alt={product.title} className="lg:w-1/4  object-cover object-center rounded" height={300} width={300} src={product.image}  />
                                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                                     <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.title}</h2>
                                     <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h1>
                                     <div className="flex mb-4">
-                                        <span className="flex items-center">                                            
+                                        <span className="flex items-center">                                        
                                             <span className="text-gray-600 ml-3"><Ratings ratings={product.rating}  /></span>
                                         </span>
                                     </div>
@@ -68,7 +46,7 @@ const SingleProduct = ({ singleProduct }: { singleProduct: any }) => {
                                         </div>
                                     </div>
                                     <div className="flex">
-                                        <span className="title-font font-medium text-2xl text-gray-900">${product.price}</span>
+                                        <span className="title-font font-medium text-2xl text-gray-900">₹{product.price}</span>
                                         <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
                                        
                                     </div>
